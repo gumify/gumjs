@@ -43,6 +43,22 @@ class Extension {
         return result
     }
 
+    reduceRight(collection, callback, initialValue) {
+        let result = initialValue
+        for (let i = collection.length - 1; i >= 0; i--) {
+            result = callback(result, collection[i], i, collection)
+        }
+        return result
+    }
+
+    reverse(collection) {
+        let result = []
+        for (let i = collection.length - 1; i >= 0; i--) {
+            result.push(collection[i])
+        }
+        return result
+    }
+
     find(collection, callback) {
         for (let i in collection) {
             if (callback(collection[i], i, collection)) {
